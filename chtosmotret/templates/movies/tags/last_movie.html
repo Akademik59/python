@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="cont_katalog_wrap slider">
+    <div class="cont_slider_header">Последние добавленные:</div>
+    <div class="cont_slider">
+        <div class="slider_wrapper">
+            {% for movie in last_movies %}
+            <a href="{{ movie.get_absolute_url }}" class="katalog_item slider">
+                <div class="katalog_item_wrapper">
+                    <img class="katalog_item_img" src="{{ movie.poster.url }}" alt="">
+                    <img class="katalog_item_play" src="{% static 'img/play-button.svg' %}" alt="">
+                </div>
+                <div class="katalog_item_info">
+                    <div class="cont_text bold">{{ movie.title }}</div>
+                    <div class="katalog_item_info_footer">
+                        <div class="cont_text lite blue">{{ movie.year }}</div>
+                        <div class="cont_text lite">{{ movie.genre }}</div>
+                        <div class="cont_text lite">КП: {{ movie.kinopoisk }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+

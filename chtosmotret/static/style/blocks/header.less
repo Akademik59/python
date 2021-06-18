@@ -1,0 +1,178 @@
+// main: ../style.less
+
+.header{
+    background-color: #251e30;
+}
+
+.header_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+
+    
+}
+
+.burger{
+    display: none;
+    height: 3px;
+    width: 30px;
+    background-color: #fff;
+    transition: height .2s linear;
+    // margin-left: 30px;
+
+    &::before{
+        content: "";
+        display: block;
+        height: 3px;
+        width: 30px;
+        position: relative;
+        top: 10px;
+        left: 0;
+        z-index: 1;
+        background-color: #fff;
+        transition: transform .2s linear, top .2s linear;
+    }
+
+    &::after{
+        content: "";
+        display: block;
+        height: 3px;
+        width: 30px;
+        position: relative;
+        top: -13px;
+        left: 0;
+        z-index: 1;
+        background-color: #fff;
+        transition: transform .2s linear, top .2s linear;
+    }
+
+    @media (max-width: @telephone) {
+        display: block;
+    }
+
+    &.active{
+        height: 0;
+        &::before{
+            top: 0;
+            transform: rotateZ(-45deg);
+        }
+
+        &::after{
+            top: -2px;
+            transform: rotateZ(45deg);
+        }
+    }
+
+}
+
+.header_img{
+    display: flex;
+    padding-left: 30px;
+    height: auto;
+    width: 22%;
+
+    @media (max-width: @telephone) {
+        justify-content: flex-end;
+        width: 70px;
+        // padding-left: 20px;
+    }
+
+    @media (max-width: @telephone-midl) {
+        display: none;
+    }
+
+}
+
+.header_logo{
+    height: 60px;
+    
+    @media (max-width: @telephone) {
+        height: 50px;
+    }
+
+    // @media (max-width: @telephone-420) {
+    //     height: ;
+    // }
+
+}
+
+.header_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 76.1%;
+
+    @media (max-width: @telephone) {
+        justify-content: flex-end;
+        width: 70%;
+    }
+
+    @media (max-width: @telephone-midl) {
+        width: 85%;
+    }
+}
+
+.header_form{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+
+    
+}
+
+.header_input{
+    height: 100%;
+    width: 500px;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    
+}
+
+.header_label{
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    z-index: 1;
+    color: #B3B3B3;
+}
+
+.input_btn{
+    
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+
+}
+
+.header_btn{
+    display: flex;
+
+    @media (max-width: @telephone) {
+        display: none;
+    }
+}
+
+.header_link{
+    height: 40px;
+}
+
+.header_link_img{
+    height: 100%;
+    margin-left: 20px;
+}

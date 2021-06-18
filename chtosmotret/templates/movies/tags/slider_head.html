@@ -1,0 +1,10 @@
+{% load static %}
+<div class="cont_main_slider">
+    <div class="cont_main_slider_wrap">
+        {% for movie in last_slide %}
+        <a href="{{ movie.get_absolute_url }}" class="cont_main_slider_item">
+            <img class="movie_header_img slider" src="{{ movie.poster_head.url }}" alt="">
+        </a>
+        {% endfor %}
+    </div>
+</div>

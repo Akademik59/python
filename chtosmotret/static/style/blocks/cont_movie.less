@@ -1,0 +1,362 @@
+// main: ../style.less
+
+.movie_header_poster{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-size: cover;
+    overflow: hidden;
+
+    @media (max-width: @tablet-bp) {
+        height: auto;
+    }
+    
+}
+
+.movie_header_img{
+    width: 100%;
+    height: auto;
+
+    &.slider{
+        display: flex;
+        // height: 100%;
+        // width: auto;
+    }
+    
+}
+
+.movie_container{
+    margin: 0 20px;
+    padding-top: 64px;
+    position: relative;
+
+    @media (max-width: @telephone-768) {
+        padding-top: 50px;
+    }
+
+    @media (max-width: @telephone-540) {
+        margin: 0;
+        padding-top: 3.5rem;
+    }
+
+    @media (max-width: @telephone-midl) {
+        padding-top: 3.5rem;
+    }
+
+    @media (max-width: @telephone-420) {
+        padding-top: 4.5rem;
+    }
+
+}
+
+.movie_head{
+    width: 100%;
+    position: absolute;
+    max-height: 140px;
+    top: -44px;
+    z-index: 10;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #202020;
+    padding: 10px 20px;
+    border-radius: 15px;
+
+    @media (max-width: @telephone-midl) {
+        margin: 0;
+    }
+
+    @media (max-width: @telephone-midl) {
+        top: -34px;
+        padding: 5px 10px;
+    }
+
+    @media (max-width: @telephone-litle) {
+        top: -24px;
+    }
+
+}
+
+.movie_head_wrap{
+    &.right{
+        text-align: center;
+        margin-right: 40px;
+
+        @media (max-width: @telephone-540) {
+            margin-right: 0;
+        }
+    }
+}
+
+.movie_title{
+    border-bottom: 1px solid rgb(146, 146, 146);
+    padding-bottom: 5px;
+    &.left{
+        padding: 0;
+        border: none;
+    }
+
+    @media (max-width: @telephone-768) {
+        font-size: 28px;
+    }
+
+    @media (max-width: @telephone-540) {
+        font-size: 22px;
+    }
+
+    @media (max-width: @telephone-litle) {
+        font-size: 18px;
+    }
+}
+
+.movie_slogan{
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    
+
+    &.left{
+        margin: 0;
+    }
+
+    @media (max-width: @telephone-midl) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    
+
+}
+
+.movie_head_svg{
+    width: 15px;
+    height: 15px;
+
+}
+
+.movie_cont{
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 40px;
+
+    @media (max-width: @telephone-420) {
+        padding: 10px;
+    }
+
+    
+}
+
+.movie_category{
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+
+    &.bold{
+        font-weight: 700;
+
+        @media (max-width: @telephone-midl) {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: @telephone-midl) {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: @telephone-420) {
+        font-size: 16px;
+    }
+
+    @media (max-width: @telephone-litle) {
+        font-size: 14px;
+    }
+}
+
+.movie_video{
+    width: 100%;
+    height: 430px;
+
+    @media (max-width: @telephone-768) {
+        height: 400px;
+    }
+
+    @media (max-width: @telephone-540) {
+        height: 300px;
+    }
+
+    @media (max-width: @telephone-midl) {
+        height: 240px;
+    }
+
+    @media (max-width: @telephone-420) {
+        height: 200px;
+    }
+
+    @media (max-width: @telephone-litle) {
+        height: 170px;
+    }
+}
+
+.movie_discription{
+    
+    justify-content: space-between;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    line-height: 24px;
+    margin-bottom: 20px;
+
+    @media (max-width: @telephone-midl) {
+        margin-bottom: 0;
+        line-height: 28px;
+    }
+}
+
+.movie_btns{
+    margin: 25px 0 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+.movie_reviews{
+    margin: 40px 10px;
+    padding: 20px;
+    border-radius: 7px;
+    
+    background-color: #eafffe;
+
+    @media (max-width: @telephone-midl) {
+        margin: 20px 10px;
+    }
+}
+
+.movie_form{
+    width: 100%;
+}
+
+.movie_form_block{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.movie_input_block{
+    width: 47%;
+    &.btm{
+        width: 100%;
+    }
+}
+
+.reviews_label{
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(128, 128, 128);
+    margin-bottom: 10px;
+}
+
+.reviews_input{
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+    
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    line-height: 21px;
+    outline: none;
+    
+    &:focus{
+        border: 2px solid #fe766a;
+    }
+
+    &.btm{
+        height: 90px;
+    }
+}
+
+.reviews_btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.comments{
+    margin: 20px 10px;
+
+    @media (max-width: @telephone-midl) {
+        line-height: 24px;
+    }
+}
+
+.comments_item{
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.comments_cont{
+    margin-bottom: 10px;
+    &.answer{
+        margin-left: 45px;
+    }
+}
+
+.user_icon{
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #3d3d3d;
+    margin-bottom: 7px;
+}
+
+.user_name{
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.comment{
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.comment_btn{
+    margin-top: 7px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #30ada5;
+}

@@ -1,0 +1,208 @@
+// main: ../style.less
+
+
+.cont_katalog_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cont_katalog_btn{
+    text-decoration: none;
+    background-color: #40eadf;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: none;
+    font-family: inherit;
+}
+
+.cont_katalog{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (max-width: @tablet-bp){
+        flex-wrap: nowrap;
+    }
+
+    @media (max-width: @telephone-540) {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: @telephone-midl) {
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+    }
+
+    @media (max-width: @telephone-litle) {
+        justify-content: center;
+    }
+
+}
+
+.cont_katalog_wrap{
+    &.slider{
+        @media (max-width: @telephone-540) {
+            display: none;
+        }
+    }
+}
+
+.katalog_item{
+    width: 190px;
+    border-radius: 7px;
+    overflow: hidden;
+    // margin-right: 23.33px;
+    margin-bottom: 17px;
+    text-decoration: none;
+    transition: all .2s linear;
+
+    &:nth-child(4n){
+        margin-right: 0;
+    }
+
+    &.slider{
+        margin: 0 5px;
+    }
+
+    &:hover{
+        .katalog_item_img{
+            transform: scale(1.05);
+        }
+        .katalog_item_play{
+            opacity: 1;
+        }
+    }
+
+
+    @media (max-width: @table-big){
+        width: 170px;
+    }
+    @media (max-width: @table-big){
+        width: 170px;
+    }
+
+    @media (max-width: @telephone){
+        width: 165px;
+    }
+
+    @media (max-width: @telephone-540) {
+        &:nth-child(4){
+            display: none;
+        }
+        width: 150px;
+    }
+
+    @media (max-width: @telephone-midl) {
+        flex-basis: 48%;
+        &:nth-child(4){
+            display: block;
+        }
+    }
+
+    @media (max-width: @telephone-420) {
+        width: 45%;
+    }
+
+    @media (max-width: @telephone-litle) {
+        flex-basis: 90%;
+    }
+}
+
+.katalog_item_wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    overflow: hidden;
+
+    &.slider{
+        height: 250px;
+    }
+    
+    @media (max-width: @table-big){
+        height: 250px;
+        width: 100%;
+    }
+
+    @media (max-width: @telephone){
+        height: 230px;
+    }
+
+    @media (max-width: @telephone-540) {
+        height: 220px;
+    }
+
+    @media (max-width: @telephone-midl) {
+        height: 280px;
+    }
+
+    @media (max-width: @telephone-420) {
+        height: 245px;
+    }
+
+    @media (max-width: @telephone-litle) {
+        height: 380px;
+    }
+
+}
+
+.katalog_item_year{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-family: 'Fira Sans',sans-serif;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: #fe766a;
+    color: #fff;
+    border-radius: 0 0 10px;
+
+    @media (max-width: @telephone){
+        padding: 3px 8px;
+    }
+}
+
+.katalog_item_img{
+    display: flex;
+    width: auto;
+    height: 100%;
+    transition: transform .3s linear;
+    
+    
+}
+
+.katalog_item_play{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    transition: all .3s linear;
+    opacity: 0;
+    
+}
+
+.katalog_item_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 65px;
+    background-color: #fff;
+    padding: 10px 10px 6px;
+}
+
+.katalog_item_info_footer{
+    display: flex;
+    justify-content: space-between;
+}

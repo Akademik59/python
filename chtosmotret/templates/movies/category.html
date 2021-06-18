@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="cont_main">
+        {% include 'include/cont_head.html' %}
+
+        <div class="cont_katalog">
+            {% for movie in movie_list %}
+            <a href="{{ movie.get_absolute_url }}" class="katalog_item">
+                <div class="katalog_item_wrapper">
+                    <div class="katalog_item_year">{{ movie.year }}</div>
+                    <img class="katalog_item_img" src="{{ movie.poster.url }}" alt="">
+                    <img class="katalog_item_play" src="{% static 'img/play-button.svg' %}" alt="">
+                </div>
+                <div class="katalog_item_info">
+                    <div class="cont_text bold">{{ movie.title }}</div>
+                    <div class="katalog_item_info_footer">
+                        <div class="cont_text lite">{{ movie.genre }}</div>
+                        <div class="cont_text lite">КП: {{ movie.kinopoisk }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        {% include 'include/pagination.html' %}
+
+    </div>
+
+{% endblock content %}

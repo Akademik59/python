@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load movie_tag %}
+
+{% block content %}
+
+<div class="cont_main movie">
+    <div class="movie_header_poster">
+        <img class="movie_header_img" src="{{ movie.poster_head.url }}" alt="">
+    </div>
+    <div class="movie_container">
+        <div class="movie_head">
+            <div class="movie_head_wrap">
+                <h1 class="movie_title">{{ movie.title }} ({{ movie.year }})</h1>
+                <div class="movie_slogan">
+                    <img class="movie_head_svg" src="{% static 'img/video.svg' %}" alt="">
+                    <div class="">{% for genre in movie.genres.all %}{{ genre.name }}{% endfor %},</div>
+                    <div class="">{{ movie.country }},</div>
+                    <div class="">{{ movie.time }}<span style="color: #fe766a;">мин</span></div>
+                </div>
+            </div>
+            <div class="movie_head_wrap right">
+                <h1 class="movie_title left">{{ movie.kinopoisk }}</h1>
+                <p class="movie_slogan left">Рейтинг КП</p>
+            </div>
+        </div>
+        <div class="movie_cont">
+            <div class="movie_category">
+                Смотреть фильм в хорошем качестве
+            </div>
+            <div class="movie_video">
+                <iframe width="100%" height="100%" src="{{ movie.youtubelink }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="cont_btn movie">
+                <a href="{{ movie.youtubelink }}" class="cont_link youtube">
+                    <div class="cont_link_wrap"></div>
+                    <p class="cont_link_text">Смотреть на YouTube</p>
+                </a>
+                <a href="{{ movie.telegramlink }}" class="cont_link tg">
+                    <div class="cont_link_wrap"></div>
+                    <p class="cont_link_text">Смотреть в Telegram</p>
+                </a>
+            </div>
+            <div class="movie_discription">
+                <b>Сюжет:</b>
+                {{ movie.description }}
+            </div>
+            {% get_last_movie count=7 %}
+            <div class="movie_reviews">
+                <div class="movie_category bold">Оставьте отзыв</div>
+                <form action="{% url 'add_review' movie.id %}" method="post" id="formReview" class="movie_form">
+                    {% csrf_token %}
+                    <input type="hidden" name="parent" id="contactparent" value="">
+                    <div class="movie_form_block">
+                        <div class="movie_input_block">
+                            <label class="reviews_label" for="">Name</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="movie_input_block">
+                            <label class="reviews_label" for="">Email</label>
+                            {{ form.email }}
+                        </div>
+                        {{ form.captcha }}
+                    </div>
+                    <div class="">
+                        <div class="movie_input_block btm">
+                            <label class="reviews_label" for="">Review</label>
+                            {{ form.text }}
+                        </div>
+                        {{ form.captcha }}
+                    </div>
+                    <div class="reviews_btn">
+                        <button href="" class="cont_link youtube">
+                            <div class="cont_link_wrap"></div>
+                            <p class="cont_link_text">Отправить</p>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="comments">
+                <div class="movie_category bold">Отзывы: ({{ movie.reviews_set.count }})</div>
+                {% for review in movie.get_review %}
+                <div class="comments_item">
+                    <div class="comments_cont">
+                        <div class="user">
+                            <div class="user_name">{{ review.name }}</div>
+                            <div class="comments_date">{{ review.date }}</div>
+                        </div>
+                        <div class="comment">{{ review.text }}</div>
+                        <button href="#formReview" onclick="addReview('{{ review.name }}', '{{ review.id }}')" class="comment_btn">Ответить</button>
+                    </div>
+                    {% for rew in review.reviews_set.all %}
+                    <div class="comments_cont answer">
+                        <div class="user">
+                            <div class="user_name">{{ rew.name }}</div>
+                            <div class="comments_date">{{ rew.date }}</div>
+                        </div>
+                        <div class="comment">{{ rew.text }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'libs/scripts/jquery-3.6.0.min.js' %}"></script>
+<script>
+    function addReview(name, id) {
+        document.getElementById("contactparent").value = id;
+        document.getElementById("contactcomment").innerText = name + ", ";
+    }
+</script>
+{% endblock content %}
+
+

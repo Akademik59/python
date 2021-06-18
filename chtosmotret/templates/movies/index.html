@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load movie_tag %}
+
+{% block content %}
+    <div class="cont_main">
+        {% get_last_slide count=3 %}
+        {% include 'include/cont_head.html' %}
+
+<!--    <div class="cont_katalog">-->
+<!--        {% for movie in movie_list %}-->
+<!--        <a href="{{ movie.get_absolute_url }}" class="katalog_item">-->
+<!--            <div class="katalog_item_wrapper">-->
+<!--                <div class="katalog_item_year">{{ movie.year }}</div>-->
+<!--                <img class="katalog_item_img" src="{{ movie.poster.url }}" alt="">-->
+<!--                <img class="katalog_item_play" src="{% static 'img/play-button.svg' %}" alt="">-->
+<!--            </div>-->
+<!--            <div class="katalog_item_info">-->
+<!--                <div class="cont_text bold">{{ movie.title }}</div>-->
+<!--                <div class="katalog_item_info_footer">-->
+<!--                    <div class="cont_text lite">{{ movie.genre }}</div>-->
+<!--                    <div class="cont_text lite">КП: {{ movie.kinopoisk }}</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+        <div class="cont_katalog_wrap">
+            <div class="cont_katalog_title">Новинки:
+                <form action="{% url 'category' %}" method="get">
+                    {% for category in view.get_category_new %}
+                        <button type="submit" class="cont_katalog_btn" name="category" value="{{ category.id }}">{{ category.name }}</button>
+                    {% endfor %}
+                </form>
+            </div>
+            {% get_last_new_movie count=4 name="Новинки" %}
+        </div>
+        {% get_last_movie count=7 %}
+        <div class="cont_katalog_wrap">
+            <div class="cont_katalog_title">Популярные:
+                <form action="{% url 'category' %}" method="get">
+                    {% for category in view.get_category_popular %}
+                        <button type="submit" class="cont_katalog_btn" name="category" value="{{ category.id }}">{{ category.name }}</button>
+                    {% endfor %}
+                </form>
+            </div>
+            {% get_last_popular_movie count=4 name="Популярные"%}
+        </div>
+    </div>
+{% endblock content %}
+
+
+

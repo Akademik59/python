@@ -1,0 +1,32 @@
+{% load static %}
+<div class="sidebar_item">
+    <nav class="sidebar_nav">
+        <a href="{% url 'movie_main' %}" class="nav_link">
+            <div  class="nav_link_text">Главная</div>
+            <img class="sidebar_link_img" src="{% static 'img/home.svg' %}" alt="">
+        </a>
+        <div class="nav_item">
+            <div class="nav_link main">
+                <div href="" class="nav_link_text">Жанры</div>
+                <img class="sidebar_link_img" src="{% static 'img/menu.svg' %}" alt="">
+            </div>
+            <form action="{% url 'ganres' %}" method="get">
+                <div class="nav_item_link">
+                    {% for genre in view.get_genres %}
+                        <button type="submit" name="genre" value="{{ genre.id }}" class="nav_link black">{{ genre.name }}</button>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+        <form action="{% url 'category' %}" method="get">
+            {% for category in view.get_category %}
+                <button type="submit" class="nav_link" name="category" value="{{ category.id }}">
+                    <div href="" class="nav_link_text">{{ category.name }}</div>
+                    <img class="sidebar_link_img" src="{{ category.img.url }}" alt="">
+                </button>
+            {% endfor %}
+        </form>
+
+
+    </nav>
+</div>

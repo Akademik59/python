@@ -1,0 +1,37 @@
+// compress: true 
+
+*,
+:before,
+:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    max-width: 1115px;
+    margin: 0 auto;
+    padding: 0 15px 0 0;
+
+    @media (max-width: @telephone) {
+        padding: 0 15px;
+    }
+
+    @media (max-width: @telephone-420) {
+        padding: 0 10px;
+    }
+
+}
+
+//import 
+@import "blocks/header";
+@import "blocks/sidebar";
+@import "blocks/cont_main";
+@import "blocks/cont_katalog";
+@import "blocks/cont_slider";
+@import "blocks/footer";
+@import "blocks/cont_movie";
+@import "blocks/cont_main_slider";
+@import "blocks/pagination";
+@import "vars";

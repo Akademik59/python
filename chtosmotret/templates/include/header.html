@@ -1,0 +1,29 @@
+{% load static %}
+<header class="header">
+    <div class="container">
+        <div class="header_item">
+            <div class="burger">
+
+            </div>
+            <a href="{% url 'movie_main' %}" class="header_img">
+                <img src="{% static 'img/Лого77.png' %}" alt="" class="header_logo">
+            </a>
+            <div class="header_wrapper">
+                <form action="{% url 'search' %}" method="get" class="header_form">
+                    <input type="search" placeholder="Поиск по названию" name="q" class="header_input">
+                    <button type="submit" class="input_btn">
+                        <img class="input_img" src="{% static 'img/lypa.svg' %}" alt="">
+                    </button>
+                </form>
+                <div class="header_btn">
+                    <a href="" class="header_link">
+                        <img class="header_link_img" src="{% static 'img/youtube.svg' %}" alt="">
+                    </a>
+                    <a href="" class="header_link">
+                        <img class="header_link_img" src="{% static 'img/telegram.svg' %}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

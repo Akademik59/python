@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static recaptcha3 %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='homepage' %}
+
+    <title>Chtosmotret</title>
+</head>
+<body>
+
+{% include 'include/header.html' %}
+    <div class="sidebar">
+        <div class="container">
+            <div class="sidebar_wrapper">
+
+            {% include 'include/sidebar.html' %}
+
+            {% block content %}
+
+
+
+            {% endblock content %}
+
+            </div>
+        </div>
+    </div>
+{% include 'include/footer.html' %}
+
+
+    <link rel="stylesheet" href="{% static 'libs/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/slick/slick-theme.css' %}">
+
+    <script src="{% static 'libs/scripts/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'libs/slick/slick.min.js' %}"></script>
+    <script src="{% static 'libs/scripts/app.js' %}"></script>
+    <script src="{% static 'libs/scripts/scroll.js' %}"></script>
+    <script src="{% static 'libs/scripts/burger.js' %}"></script>
+
+</body>
+</html>
